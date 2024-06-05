@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Tracking Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Application Tracking Tool</h1>
+        </header>
+        <main>
+            <section class="form-section">
+                <h2>Add New Entry</h2>
+                <form id="trackingForm">
+                    <div class="form-group">
+                        <label for="type">Type:</label>
+                        <select id="type" name="type">
+                            <option value="candidate">Candidate</option>
+                            <option value="job">Job</option>
+                            <option value="application">Application</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="jobTitle">Job Title:</label>
+                        <input type="text" id="jobTitle" name="jobTitle">
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status:</label>
+                        <input type="text" id="status" name="status">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Add</button>
+                    </div>
+                </form>
+            </section>
+            <section class="table-section">
+                <h2>Entries</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Job Title</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="entriesTableBody">
+                        <!-- Entries will be added here dynamically -->
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+<section class="table-section">
+  <h2>Entries</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Job Title</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entry of entries">
+        <td>{{ entry.type }}</td>
+        <td>{{ entry.name }}</td>
+        <td>{{ entry.email }}</td>
+        <td>{{ entry.jobTitle }}</td>
+        <td>{{ entry.status }}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
